@@ -1,6 +1,6 @@
 {
   "name": "mocha-grommet-chart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mocha Data Plotter built in React/Grommet",
   "main": "./dist/chart.js",
   "scripts": {

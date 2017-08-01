@@ -19,8 +19,8 @@ const Handlers = (props) => {
   // storage.clear();
 
   if(storage.length === 0){
-    data = new Array(24).fill(0);
-    marker = 23;
+    data = new Array(50).fill(0);
+    marker = 49;
   }
   else{
     data = JSON.parse(storage.getItem('data'));
