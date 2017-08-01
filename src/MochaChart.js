@@ -24,22 +24,22 @@ class MochaChart extends Component{
                   width='large' />
             <Layers>
               <Grid rows={10}
-                    columns={24} />
+                    columns={50} />
               <Line values={this.props.data}
                     colorIndex='accent-1'
                     points={true}
                     activeIndex={this.props.data.length - 1} />
               <Marker colorIndex='graph-2'
-                      count={24}
-                      vertical={true}
-                      index={23} />
+                    count={50}
+                    vertical={true}
+                    index={49} />
               <Marker colorIndex='critical'
-                      count={24}
-                      vertical={true}
-                      index={this.props.marker} />
+                    count={50}
+                    vertical={true}
+                    index={this.props.marker} />
             </Layers>
             <Axis count={2}
-                  labels={[{"index": 0, "label": this.props.end}, {"index": 1, "label": this.props.start}]} />
+                  labels={[{"index": 0, "label": "50"}, {"index": 1, "label": "0"}]} />
           </Chart>
         </Chart>
       </Box>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
+import { add } from './Handlers';
+
 import App from 'grommet/components/App';
 import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 
 import MochaChart from './MochaChart';
-
-import { add } from './chart';
 
 import 'grommet/grommet-hpe.min.css';
 
@@ -14,73 +15,34 @@ class Main extends Component{
   constructor(props){
     super(props);
 
-    let date = new Date();
-    let new_date = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-    let start;
-    let end;
-
-    start = date.getMonth().toString() + "/" + date.getDay().toString() + " @ " + date.getHours().toString() + ":" + date.getMinutes().toString();
-    end  = new_date.getMonth().toString() + "/" + new_date.getDay().toString() + " @ " + new_date.getHours().toString() + ":" + new_date.getMinutes().toString();
-
     this.state = {
-      data: new Array(24).fill(0),
-      start,
-      end,
-      marker: 23
+      data: this.props.data,
+      start: this.props.start,
+      end: this.props.end,
+      marker: this.props.marker
     };
-
-    this.set = this.set.bind(this);
   }
 
-  componentDidMount() {
-    add(this.set);
-
-    setInterval(() => {this.addPoint();}, 1000);
-  }
-
-  set() {
-    this.setState({});
-  }
-
-  // MOCK TEST DATA
-
-  addPoint(){
-    let point = Math.floor((Math.random() * 100) + 1);
-    let arr = this.state.data;
-    let date = new Date();
-    let new_date = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-    let start;
-    let end;
-
-    arr.shift();
-    arr.push(point);
-
-    start = date.getMonth().toString() + "/" + date.getDay().toString() + " @ " + date.getHours().toString() + ":" + date.getMinutes().toString();
-    end  = new_date.getMonth().toString() + "/" + new_date.getDay().toString() + " @ " + new_date.getHours().toString() + ":" + new_date.getMinutes().toString();
-
-    let temp = this.state.marker - 1;
-
-    if(temp >= 0){
-      this.setState({marker:temp});
-    }
-
+  componentWillReceiveProps(nextProps){
     this.setState({
-      data: arr,
-      start,
-      end
+      data: nextProps.data,
+      start: nextProps.start,
+      end: nextProps.end,
+      marker: nextProps.marker
     });
   }
 
   render(){
     return(
       <App>
-        <Box align="center" justify="center" colorIndex="grey-3" pad="medium" margin="medium">
+        <Box direction="row" colorIndex="grey-3" pad="medium" margin="medium">
           <MochaChart
             data = {this.state.data}
             start = {this.state.start}
             end = {this.state.end}
             marker = {this.state.marker}
           />
+          <Button fill={false} label="Reset" onClick={this.props.reset} />
         </Box>
       </App>
     );
@@ -88,7 +50,11 @@ class Main extends Component{
 }
 
 Main.propTypes = {
-
+  reset: PropTypes.func,
+  start: PropTypes.string,
+  end: PropTypes.string,
+  data: PropTypes.array,
+  marker: PropTypes.number
 };
 
 export default Main;
