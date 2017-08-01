@@ -30,13 +30,13 @@ class MochaChart extends Component{
                     points={true}
                     activeIndex={this.props.data.length - 1} />
               <Marker colorIndex='graph-2'
-                      count={24}
-                      vertical={true}
-                      index={23} />
+                    count={24}
+                    vertical={true}
+                    index={23} />
               <Marker colorIndex='critical'
-                      count={24}
-                      vertical={true}
-                      index={this.props.marker} />
+                    count={24}
+                    vertical={true}
+                    index={this.props.marker} />
             </Layers>
             <Axis count={2}
                   labels={[{"index": 0, "label": this.props.end}, {"index": 1, "label": this.props.start}]} />

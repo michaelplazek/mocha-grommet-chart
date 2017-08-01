@@ -1,3 +1,3 @@
 # Mocha Grommet Chart
 
-This is a dynamic chart that will plot suite results as a function of time, extending back one week and pulling test data every hour.
+This is a dynamic chart that plots the last 100 test results, which are storage in local storage
