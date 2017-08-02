@@ -17,8 +17,8 @@ class Main extends Component{
 
     this.state = {
       data: this.props.data,
+      info: this.props.info,
       start: this.props.start,
-      end: this.props.end,
       marker: this.props.marker
     };
   }
@@ -26,8 +26,8 @@ class Main extends Component{
   componentWillReceiveProps(nextProps){
     this.setState({
       data: nextProps.data,
+      info: nextProps.info,
       start: nextProps.start,
-      end: nextProps.end,
       marker: nextProps.marker
     });
   }
@@ -38,11 +38,13 @@ class Main extends Component{
         <Box direction="row" colorIndex="grey-3" pad="medium" margin="medium">
           <MochaChart
             data = {this.state.data}
+            info = {this.state.info}
             start = {this.state.start}
-            end = {this.state.end}
             marker = {this.state.marker}
           />
-          <Button fill={false} label="Reset" onClick={this.props.reset} />
+        </Box>
+        <Box margin={{horizontal:"medium",vertical:"large"}}>
+          <Button plain={false} accent={true} fill={false} label="Reset" onClick={this.props.reset} />
         </Box>
       </App>
     );
@@ -52,8 +54,8 @@ class Main extends Component{
 Main.propTypes = {
   reset: PropTypes.func,
   start: PropTypes.string,
-  end: PropTypes.string,
   data: PropTypes.array,
+  info: PropTypes.array,
   marker: PropTypes.number
 };
 
