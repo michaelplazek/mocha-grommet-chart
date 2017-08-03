@@ -4,7 +4,7 @@ This is a dynamic chart that plots the last 50 test results, which are stored in
 
 ## Screenshot
 
-[Mocha Chart](http://i.imgur.com/8TRZZaF.png)
+![Mocha Chart](http://i.imgur.com/8TRZZaF.png)
 
 ## To run 
 Add div to html page where you want chart to render
