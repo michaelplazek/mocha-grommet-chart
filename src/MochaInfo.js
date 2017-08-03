@@ -13,22 +13,25 @@ class MochaInfo extends Component {
   }
 
   getInfo(info, index){
-    let result = (
-      <List>
-        <ListItem justify="center">
-          <Label>{info[index].start}</Label>
-        </ListItem>
-        <ListItem justify="center">
-          <Label>Passed Tests: {info[index].passes}</Label>
-        </ListItem>
-        <ListItem justify="center">
-          <Label>Failed Tests: {info[index].failures}</Label>
-        </ListItem>
-        <ListItem justify="center">
-          <Label>Slow Tests: {info[index].slow}</Label>
-        </ListItem>
-      </List>
-    );
+    let result = null;
+    if(info[index].passes !== null){
+      result = (
+        <List>
+          <ListItem justify="center">
+            <Label>{info[index].start}</Label>
+          </ListItem>
+          <ListItem justify="center">
+            <Label>Passed Tests: {info[index].passes}</Label>
+          </ListItem>
+          <ListItem justify="center">
+            <Label>Failed Tests: {info[index].failures}</Label>
+          </ListItem>
+          <ListItem justify="center">
+            <Label>Slow Tests: {info[index].slow}</Label>
+          </ListItem>
+        </List>
+      );
+    }
     return result;
   }
 
