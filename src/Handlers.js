@@ -26,10 +26,10 @@ const Handlers = (props) => {
 
     for(let i = 0; i < info.length; i++){
       info[i] = {
-        start: 0,
-        passes: 0,
-        failures: 0,
-        slow: 0
+        start: null,
+        passes: null,
+        failures: null,
+        slow: null
       };
     }
   }
