@@ -1,6 +1,7 @@
 # Mocha Grommet Chart
 
-This is a dynamic chart that plots the last 50 test results, which are stored in local storage
+This is a dynamic chart that plots the last 50 test results by percentage of failed/slow tests out of total tests.
+Data is stored in local storage at the end of every run and retrieved at the start of each run.
 
 ## Screenshot
 
@@ -16,7 +17,7 @@ Add div to html page where you want chart to render
 <div id='chart'></div>
 ```
 
-Import module and use as reporter option in mocha config
+Import module and use as reporter option in mocha config in your index.js
 ```
 import mochaChart from 'mocha-grommet-chart';
 
